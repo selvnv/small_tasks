@@ -1,0 +1,9 @@
+name: server_app
+
+services:
+  server:
+    image: simple_server
+    build:
+      context: .
+    ports:
+      - "8000:8000/tcp"
