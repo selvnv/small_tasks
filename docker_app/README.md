@@ -8,3 +8,4 @@
 * Запустить остановленный контейнер: `docker start simple_server`
 * Просмотр всех контейнеров (даже остановленных): `docker ps -a`
 * Просмотр логов контейнера runtime: `docker container logs simple_server --follow`
+* Запустить группу контейнеров, определенных в файле `compose.yaml` в фоновом режиме: `docker compose up --detach`

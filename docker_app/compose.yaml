@@ -1,9 +1,50 @@
 name: server_app
 
 services:
+# Приложение, контейнер которого запускается из образа,
+# который собирается Docker-файлом в текущей директории
   server:
     image: simple_server
     build:
       context: .
     ports:
       - "8000:8000/tcp"
+    env_file: [db.env, django.env]
+    depends_on:
+      db_postgresql:
+#  Сервис будет запущен только после того как сервис-зависимость перейдет
+# в состояние "healthy" (т.е. успешно пройдет команду-проверку в healthcheck)
+        condition: service_healthy
+
+# База данных Postgres с настроенными переменными окружения
+# Часть переменных необходима для подключения к базе с хоста или другого контейнера
+# Более подробное описание переменных здесь: https://hub.docker.com/_/postgres
+  db_postgresql:
+    image: postgres
+    environment:
+      POSTGRES_DB: server_app_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+# Переменная используется для явного указания пути, по которому БД будет сохранять данные
+      PGDATA: "/var/lib/postgresql/data"
+    volumes:
+      - "db_data:/var/lib/postgresql/data"
+    healthcheck:
+# Команда, выполнение которой определяет "здоровье" контейнера
+      test: pg_isready -U postgres
+      disable: false
+# Важно, чтобы (interval > timeout)  иначе команда проверки
+# будет запускаться до того, как отработала предыдущая проверка
+      interval: 5s
+      timeout: 2s
+# Количество неудачных попыток (после игнорирования во время start_period),
+# после которых контейнер перейдет в состояние unhealthy
+      retries: 5
+# Начальный временной период, в течение которого падающие проверки не отмечают контейнер как unhealthy
+# Это необходимо, чтобы дать сервису время на инициализацию
+      start_period: 10s
+
+# Томы используются для сохранения данных между перезапусками контейнеров
+volumes:
+  db_data:
+    name: server_db_data
