@@ -2,55 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Image Gallery</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./style/styles.css" />
   </head>
   <body>
-    <header><h2>Image gallery</h2></header>
-    <article>
-      <table
-        style="border: 1px solid; border-collapse: collapse"
-        cellpadding="0"
-      >
-        <caption style="caption-side: bottom">
-          Random image app by
-          <b>Vladimir Selivanov</b>
-        </caption>
-        <tr>
-          <td style="border: 1px solid">
-            <img
-              src="https://picsum.photos/200/200?random=1"
-              alt="some random photo was here"
-              style="display: block"
-            />
-          </td>
-          <td style="border: 1px solid">
-            <img
-              src="https://picsum.photos/200/200?random=2"
-              alt="some random photo was here"
-              style="display: block"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td style="border: 1px solid">
-            <img
-              src="https://picsum.photos/200/200?random=3"
-              alt="some random photo was here"
-              style="display: block"
-            />
-          </td>
-          <td style="border: 1px solid">
-            <img
-              src="https://picsum.photos/200/200?random=4"
-              alt="some random photo was here"
-              style="display: block"
-            />
-          </td>
-        </tr>
-      </table>
-    </article>
+    <header><h1>Image Gallery</h1></header>
+    <div class="mainContent">
+      <article>
+        <table cellpadding="0">
+          <tr>
+            <td>
+              <img
+                src="https://picsum.photos/200/200?random=1"
+                alt="some random photo was here"
+                class="imageRadius"
+              />
+            </td>
+            <td>
+              <img
+                src="https://picsum.photos/200/200?random=2"
+                alt="some random photo was here"
+                class="imageRadius"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="https://picsum.photos/200/200?random=3"
+                alt="some random photo was here"
+                class="imageRadius"
+              />
+            </td>
+            <td>
+              <img
+                src="https://picsum.photos/200/200?random=4"
+                alt="some random photo was here"
+                class="imageRadius"
+              />
+            </td>
+          </tr>
+        </table>
+        <div style="margin-top: 15px;margin-bottom: 15px"><a href=".">Next images</a></div>
+      </article>
+    </div>
+    <footer>Random image app by <b>Vladimir Selivanov</b></footer>
   </body>
 </html>
