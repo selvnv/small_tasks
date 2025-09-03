@@ -10,10 +10,7 @@ h1 {
     padding: 10px;
 }
 
-table {
-    /* border-style: none; */
-    border-collapse: collapse;
-}
+
 
 footer {
     color: white;
@@ -21,19 +18,62 @@ footer {
     padding: 10px;
 }
 
-a {
-    color: red;
-}
-
-a:hover {
-    color: green;
-}
-
 .mainContent {
     padding: 10px;
 }
 
-.imageRadius {
-    padding: 3px;
+.contentContainer {
+    display: flex;
+    /* задает направление flex, в строку или столбец */
+    flex-direction: row;
+    /* управляет расстоянием между элементами */
+    justify-content: space-around;
+    /* возможность переносить на новую строку элементы, которые не поместились в ряду */
+    flex-wrap: wrap;
+    /* выравнивание элементов во flex элементе */
+    align-items: center;
+}
+
+.contentContainerCentered {
+    display: flex;
+    /* задает направление flex, в строку или столбец */
+    flex-direction: row;
+    /* управляет расстоянием между элементами */
+    justify-content: center;
+    /* возможность переносить на новую строку элементы, которые не поместились в ряду */
+    flex-wrap: wrap;
+    /* выравнивание элементов во flex элементе */
+    align-items: center;
+}
+
+.contentContainer img {
+    margin: 6px;
     border-radius: 20px;
+    width: 100px;
+    box-shadow: 5px 4px 5px 3px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s;
+}
+
+.contentContainer img:hover {
+    box-shadow: 6px 4px 7px 3px rgba(0, 0, 0, 0.35);
+}
+
+.buttonClassA {
+    margin: 15px;
+    border-radius: 4px;
+    border: none;
+    padding: 15px 25px 15px 25px;
+    background-color: rgba(19, 131, 206, 0.46);
+    color: azure;
+    transition: background-color 0.3s;
+}
+
+.buttonClassA:hover {
+    background-color: rgba(190, 19, 206, 0.46);
+}
+
+@media (max-width: 360px) {
+    .contentContainer img {
+        width: 100%;
+    }
 }
