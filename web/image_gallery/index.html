@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Gallery</title>
     <link rel="stylesheet" href="./style/styles.css" />
-    <script src="src/globalFunctions.js"></script>
-    <script src="src/removeImage.js"></script>
-    <script src="src/refreshImages.js"></script>
-    <script src="src/addImage.js"></script>
-    <script src="src/switchClass.js"></script>
+    <script src="./src/globalFunctions.js"></script>
+    <script src="./src/events.js"></script>
+    <script src="./src/switchClass.js"></script>
   </head>
   <body>
     <header><h1>Image Gallery</h1></header>
     <div class="mainContent">
       <article>
         <div class="contentContainer" id="imageContainer">
-          <img
-            src="https://picsum.photos/300/200?random=1"
-            alt="some random photo was here"
-            class="imageRadius"
-          />
-          <img
-            src="https://picsum.photos/300/200?random=2"
-            alt="some random photo was here"
-            class="imageRadius"
-          />
-          <img
-            src="https://picsum.photos/300/200?random=3"
-            alt="some random photo was here"
-            class="imageRadius"
-          />
-          <img
-            src="https://picsum.photos/300/200?random=4"
-            alt="some random photo was here"
-            class="imageRadius"
-          />
+          <div class="singleImageContainer">
+            <img
+              src="https://picsum.photos/1000/700?random=1"
+              alt="some random photo was here"
+            />
+          </div>
+          <div class="singleImageContainer">
+            <img
+              src="https://picsum.photos/1000/700?random=2"
+              alt="some random photo was here"
+            />
+          </div>
+          <div class="singleImageContainer">
+            <img
+              src="https://picsum.photos/1000/700?random=3"
+              alt="some random photo was here"
+            />
+          </div>
+          <div class="singleImageContainer">
+            <img
+              src="https://picsum.photos/1000/700?random=4"
+              alt="some random photo was here"
+            />
+          </div>
         </div>
         <div class="contentContainerCentered">
           <button class="buttonClassA" id="refreshImagesButton">Next images</button>
